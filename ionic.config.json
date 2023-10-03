@@ -1,0 +1,7 @@
+{
+  "name": "test-arcade-game",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
