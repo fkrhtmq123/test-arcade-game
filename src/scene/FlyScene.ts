@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser from "phaser"
 
 let fly: Phaser.Physics.Arcade.Image
 let score: number = 0
@@ -24,6 +24,7 @@ export default class FlyScene extends Phaser.Scene {
     }
 
     preload = () => {
+        this.load.image('bird', '/img/bird.png')
         this.load.image('cloud', '/img/cloud.png')
         this.load.image('back', '/img/back.png')
     }
@@ -175,9 +176,9 @@ export default class FlyScene extends Phaser.Scene {
     }
 
     addFly = () => {
-        fly = this.physics.add.image(300, 500, 'fly')
+        fly = this.physics.add.image(300, 500, 'bird')
         fly.setOrigin(0)
-        fly.setDisplaySize(100,100)
+        fly.setDisplaySize(200,100)
         fly.body.allowGravity = false
     }
 
@@ -212,14 +213,12 @@ export default class FlyScene extends Phaser.Scene {
                     if(!isOverlapping) {
                         if(item.name === 'small') {
                             score += 50
-    
                             fly.setDisplaySize(fly.displayWidth - 30, fly.displayHeight - 30)
                             scoreText.setText(`Score : ${score}`)
                         }
     
                         if(item.name === 'big') {
                             score += 100
-    
                             fly.setDisplaySize(fly.displayWidth + 30, fly.displayHeight + 30)
                             scoreText.setText(`Score : ${score}`)
                         }

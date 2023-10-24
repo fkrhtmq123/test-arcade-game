@@ -1,24 +1,24 @@
 import { useEffect, useRef } from "react"
-import FlyScene from "../scene/FlyScene"
+import FruitScene from "../scene/FruitScene"
 
 let game: Phaser.Game
 
 interface interfaceProp {}
 
-const FlyContainer: React.FC<interfaceProp> = () => {
+const FruitContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
 
     function reloadHandler() {
         window.location.reload()
     }
-    
+
     useEffect(() => {
         const gameConfig = {
             type: Phaser.AUTO,
-            width: 1920,
-            height: 1080,
-            backgroundColor: '#182160',
-            scene: [FlyScene],
+            width: 1080,
+            height: 1920,
+            backgroundColor: '#c68d54',
+            scene: [FruitScene],
             scale: {
                 mode: Phaser.Scale.ScaleModes.FIT,
                 parent: 'test',
@@ -45,4 +45,4 @@ const FlyContainer: React.FC<interfaceProp> = () => {
     )
 }
 
-export default FlyContainer
+export default FruitContainer
