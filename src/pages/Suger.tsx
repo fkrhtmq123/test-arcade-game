@@ -1,14 +1,14 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Hunting.css';
+import SugerContainer from '../components/SugerContainer';
 
-const Hunting: React.FC = () => {
+const Suger: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
+        <SugerContainer />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Hunting;
+export default Suger;

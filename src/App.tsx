@@ -11,9 +11,6 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Fruit';
-import Tab2 from './pages/Fly';
-import Tab3 from './pages/Hunting';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,42 +30,37 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Fly from './pages/Fly';
+import Fruit from './pages/Fruit';
+import Hunting from './pages/Hunting';
+import Home from './pages/Home';
+import Suger from './pages/Suger';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
           <Route exact path="/fruit">
-            <Tab1 />
+            <Fruit />
           </Route>
           <Route exact path="/fly">
-            <Tab2 />
+            <Fly />
           </Route>
           <Route path="/hunting">
-            <Tab3 />
+            <Hunting />
+          </Route>
+          <Route path="/suger">
+            <Suger />
           </Route>
           <Route exact path="/">
-            <Redirect to="/fruit" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="fruit" href="/fruit">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Fruit</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="fly" href="/fly">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Fly</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="hunting" href="/hunting">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Hunting</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );

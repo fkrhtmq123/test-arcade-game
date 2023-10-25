@@ -1,14 +1,15 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Hunting.css';
+import './Fly.css';
+import HomeContainer from '../components/HomeContainer';
 
-const Hunting: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
+        <HomeContainer />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Hunting;
+export default Home;
