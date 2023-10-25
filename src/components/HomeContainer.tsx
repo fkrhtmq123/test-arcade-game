@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import HomeScene from "../scene/HomeScene"
+import { IonContent } from "@ionic/react"
 
 let game: Phaser.Game
 
@@ -9,7 +10,8 @@ const HomeContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
 
     function reloadHandler() {
-        window.location.reload()
+        // window.location.reload()
+        window.location.href = '/arcade/'
     }
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const HomeContainer: React.FC<interfaceProp> = () => {
         game = new Phaser.Game(gameConfig)
 
         return () => {
-            game?.destroy(true)
+            // game?.destroy(true)
           }
     }, [])
 

@@ -4,11 +4,9 @@ import HomeContainer from '../components/HomeContainer';
 
 const Home: React.FC = () => {
   return (
-    <IonPage>
-      <IonContent fullscreen>
-        <HomeContainer />
-      </IonContent>
-    </IonPage>
+    <IonContent>
+      <HomeContainer />
+    </IonContent>
   );
 };
 

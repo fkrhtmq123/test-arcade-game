@@ -10,7 +10,8 @@ const HuntingContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
 
     function reloadHandler() {
-        window.location.reload()
+        // window.location.reload()
+        window.location.href = '/arcade/'
     }
 
     useEffect(() => {
