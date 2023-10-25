@@ -11,10 +11,11 @@ const HomeContainer: React.FC<interfaceProp> = () => {
 
     function reloadHandler() {
         // window.location.reload()
-        window.location.href = '/arcade/'
+        window.location.href = '/'
     }
 
     useEffect(() => {
+        console.log("page 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,
@@ -27,10 +28,10 @@ const HomeContainer: React.FC<interfaceProp> = () => {
             }
         }
 
-        if (refFirstRef.current) {
-            refFirstRef.current = false
-            return
-        }
+        // if (refFirstRef.current) {
+        //     refFirstRef.current = false
+        //     return
+        // }
 
         game = new Phaser.Game(gameConfig)
 

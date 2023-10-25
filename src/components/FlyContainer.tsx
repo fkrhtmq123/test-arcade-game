@@ -26,15 +26,15 @@ const FlyContainer: React.FC<interfaceProp> = () => {
             }
         }
 
-        if (refFirstRef.current) {
-            refFirstRef.current = false
-            return
-        }
+        // if (refFirstRef.current) {
+        //     refFirstRef.current = false
+        //     return
+        // }
 
         game = new Phaser.Game(gameConfig)
 
         return () => {
-            game?.destroy(true)
+            // game?.destroy(true)
           }
     }, [])
 

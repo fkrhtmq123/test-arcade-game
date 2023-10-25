@@ -39,6 +39,7 @@ export default class HomeScene extends Phaser.Scene {
 
         this.input.on('pointerdown', function (pointer: Phaser.Input.Pointer) {
             isDragging = true
+            lastPointerPosition = { x: pointer.worldX, y: pointer.worldY }
             console.log(`x : ${pointer.x}, y : ${pointer.y}`)
         })
 
@@ -48,7 +49,15 @@ export default class HomeScene extends Phaser.Scene {
 
         this.input.on('pointermove', function (pointer: Phaser.Input.Pointer) {
             if (isDragging) {
-                cam.centerOn(pointer.worldX, pointer.worldY)
+                // cam.centerOn(pointer.worldX, pointer.worldY)
+                const deltaX = pointer.worldX - lastPointerPosition.x;
+                const deltaY = pointer.worldY - lastPointerPosition.y;
+
+                // 카메라 이동 방향을 반대로 적용
+                this.cameras.main.scrollX -= deltaX
+                this.cameras.main.scrollY -= deltaY
+
+                lastPointerPosition = { x: pointer.worldX, y: pointer.worldY }
             }
         })
     }

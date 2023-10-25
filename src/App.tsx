@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupIonicReact
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -42,24 +42,26 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/fruit">
-            <Fruit />
-          </Route>
-          <Route exact path="/fly">
-            <Fly />
-          </Route>
-          <Route path="/hunting">
-            <Hunting />
-          </Route>
-          <Route path="/suger">
-            <Suger />
-          </Route>
-          {/* <Route exact path="/">
-            <Redirect to="/" />
-          </Route> */}
+          <IonReactHashRouter>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/fruit">
+              <Fruit />
+            </Route>
+            <Route exact path="/fly">
+              <Fly />
+            </Route>
+            <Route exact path="/hunting">
+              <Hunting />
+            </Route>
+            <Route exact path="/suger">
+              <Suger />
+            </Route>
+            {/* <Route exact path="/">
+              <Redirect to="/arcade/" />
+            </Route> */}
+          </IonReactHashRouter>
         </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
