@@ -14,6 +14,7 @@ const SugerContainer: React.FC<interfaceProp> = () => {
     }
 
     useEffect(() => {
+        console.log("suger 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,

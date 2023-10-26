@@ -4,11 +4,9 @@ import FruitContainer from '../components/FruitContainer';
 
 const Fruit: React.FC = () => {
   return (
-    <IonPage>
-      <IonContent fullscreen>
-        <FruitContainer />
-      </IonContent>
-    </IonPage>
+    <IonContent>
+      <FruitContainer />
+    </IonContent>
   );
 };
 

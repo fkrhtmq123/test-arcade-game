@@ -14,6 +14,7 @@ const FruitContainer: React.FC<interfaceProp> = () => {
     }
 
     useEffect(() => {
+        console.log("fruit 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,

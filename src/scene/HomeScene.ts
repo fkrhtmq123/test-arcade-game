@@ -1,5 +1,6 @@
 import { configure } from "@testing-library/react"
 import Phaser from "phaser"
+import { useHistory } from "react-router"
 
 let lastPointerPosition = { x: 0, y: 0 }
 
@@ -30,8 +31,8 @@ export default class HomeScene extends Phaser.Scene {
         cam.setBounds(0, 0, 2100, 2100)
 
         const graphics = this.add.graphics()
-        this.createPoint(graphics, 383, 979, 15, 'Fly')
-        this.createPoint(graphics, 1320, 1230, 15, 'Fruit')
+        this.createPoint(graphics, 383, 979, 15, 'fly')
+        this.createPoint(graphics, 1320, 1230, 15, 'fruit')
         this.createPoint(graphics, 1000, 920, 15, 'suger')
         this.createPoint(graphics, 1380, 979, 15, 'oekaki')
 
@@ -63,6 +64,10 @@ export default class HomeScene extends Phaser.Scene {
     }
 
     createPoint = (graphics: Phaser.GameObjects.Graphics, x: number, y: number, radius: number, name: string) => {
+        const history = this.scene.key === 'HomeScene' ? this.scene.get('router') : null
+
+        console.log(this.scene.key)
+        
         graphics.fillStyle(0xff0000, 1)
         graphics.fillCircle(x, y, radius)
         graphics.setName(name)
@@ -76,7 +81,8 @@ export default class HomeScene extends Phaser.Scene {
             if(nameText.name === 'oekaki') {
                 window.location.href = 'http://alpha-game.oemoriplus.jp/'
             } else {
-                window.location.href = `/${name}`
+                // history.push(`/${name}`)
+                window.location.href = `/arcade/#/${name}`
             }
         })
     }

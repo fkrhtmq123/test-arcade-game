@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import FruitScene from "../scene/FruitScene"
 import HuntingScene from "../scene/HuntingScene"
+import { useHistory } from "react-router"
 
 let game: Phaser.Game
 
@@ -8,6 +9,7 @@ interface interfaceProp {}
 
 const HuntingContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
+    const history = useHistory()
 
     function reloadHandler() {
         // window.location.reload()
@@ -15,6 +17,7 @@ const HuntingContainer: React.FC<interfaceProp> = () => {
     }
 
     useEffect(() => {
+        console.log("hunting 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,
