@@ -3,9 +3,11 @@ import SugerContainer from '../components/SugerContainer';
 
 const Suger: React.FC = () => {
   return (
-    <IonContent>
-      <SugerContainer />
-    </IonContent>
+    <IonPage>
+      <IonContent fullscreen>
+        <SugerContainer />
+      </IonContent>
+    </IonPage>
   );
 };
 

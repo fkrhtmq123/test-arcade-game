@@ -1,12 +1,14 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Fly.css';
+import './Home.css';
 import HomeContainer from '../components/HomeContainer';
 
 const Home: React.FC = () => {
   return (
-    <IonContent>
-      <HomeContainer />
-    </IonContent>
+    <IonPage>
+      <IonContent fullscreen>
+        <HomeContainer />
+      </IonContent>
+    </IonPage>
   );
 };
 

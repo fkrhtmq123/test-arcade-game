@@ -14,7 +14,6 @@ const FruitContainer: React.FC<interfaceProp> = () => {
     }
 
     useEffect(() => {
-        console.log("fruit 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,
@@ -41,7 +40,6 @@ const FruitContainer: React.FC<interfaceProp> = () => {
 
     return (
         <>
-            <button onClick={reloadHandler}>Reload</button>
             <div id="test"></div>
         </>
     )

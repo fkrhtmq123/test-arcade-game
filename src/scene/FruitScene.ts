@@ -3,7 +3,6 @@ import Phaser from "phaser"
 let fruitList = ['cherry', 'strawberry', 'grape', 'orange', 'persimmon', 'apple', 'pear', 'peach', 'pineapple', 'melon', 'watermelon']
 let fruit: string = ""
 let score: number = 0
-let scoreText: Phaser.GameObjects.Text
 
 export default class FruitScene extends Phaser.Scene {
     constructor() {
@@ -42,7 +41,7 @@ export default class FruitScene extends Phaser.Scene {
         fruit = fruitName
 
         const nextFruitText = this.add.text(100, 100, `次の果物 : ${fruitName}`, { fontSize: 40})
-        scoreText = this.add.text(100, 150, `Score : ${score}`, { fontSize: 40})
+        const scoreText = this.add.text(100, 150, `Score : ${score}`, { fontSize: 40})
 
         this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
             this.addFruit(pointer)
@@ -79,52 +78,52 @@ export default class FruitScene extends Phaser.Scene {
                     if(gameObjectA.name === gameObjectB.name) {
                         if(gameObjectA.name === 'cherry') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'strawberry', 70, 70)
-                            this.scoreTextUpdate(1)
+                            this.scoreTextUpdate(1, scoreText)
                         }
                         
                         if(gameObjectA.name === 'strawberry') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'grape', 90, 90)
-                            this.scoreTextUpdate(3)
+                            this.scoreTextUpdate(3, scoreText)
                         }
 
                         if(gameObjectA.name === 'grape') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'orange', 150, 150)
-                            this.scoreTextUpdate(6)
+                            this.scoreTextUpdate(6, scoreText)
                         }
 
                         if(gameObjectA.name === 'orange') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'persimmon', 200, 200)
-                            this.scoreTextUpdate(10)
+                            this.scoreTextUpdate(10, scoreText)
                         }
 
                         if(gameObjectA.name === 'persimmon') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'apple', 250, 250)
-                            this.scoreTextUpdate(15)
+                            this.scoreTextUpdate(15, scoreText)
                         }
 
                         if(gameObjectA.name === 'apple') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'pear', 300, 300)
-                            this.scoreTextUpdate(21)
+                            this.scoreTextUpdate(21, scoreText)
                         }
 
                         if(gameObjectA.name === 'pear') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'peach', 350, 350)
-                            this.scoreTextUpdate(28)
+                            this.scoreTextUpdate(28, scoreText)
                         }
 
                         if(gameObjectA.name === 'peach') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'pineapple', 400, 400)
-                            this.scoreTextUpdate(36)
+                            this.scoreTextUpdate(36, scoreText)
                         }
 
                         if(gameObjectA.name === 'pineapple') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'melon', 450, 450)
-                            this.scoreTextUpdate(45)
+                            this.scoreTextUpdate(45, scoreText)
                         }
 
                         if(gameObjectA.name === 'melon') {
                             this.collisionFruit(gameObjectA, gameObjectB, 'watermelon', 500, 500)
-                            this.scoreTextUpdate(55)
+                            this.scoreTextUpdate(55, scoreText)
                         }
                     }
                 }
@@ -190,9 +189,9 @@ export default class FruitScene extends Phaser.Scene {
         newFruit.setName(next)
         newFruit.setDisplaySize(sizeX, sideY)
     }
-    scoreTextUpdate = (scorePlus: number) => {
+
+    scoreTextUpdate = (scorePlus: number, scoreText: any) => {
         score += scorePlus
-        console.log(score)
         scoreText.setText(`Score : ${score}`)
     }
     // create = () => {}

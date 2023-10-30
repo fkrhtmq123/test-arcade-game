@@ -5,9 +5,11 @@ import HuntingContainer from '../components/HuntingContainer';
 
 const Hunting: React.FC = () => {
   return (
-    <IonContent>
-      <HuntingContainer />
-    </IonContent>
+    <IonPage>
+      <IonContent fullscreen>
+        <HuntingContainer />
+      </IonContent>
+    </IonPage>
   );
 };
 

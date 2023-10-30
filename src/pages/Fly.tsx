@@ -4,9 +4,11 @@ import FlyContainer from '../components/FlyContainer';
 
 const Fly: React.FC = () => {
   return (
-    <IonContent>
-      <FlyContainer />
-    </IonContent>
+    <IonPage>
+      <IonContent fullscreen>
+        <FlyContainer />
+      </IonContent>
+    </IonPage>
   );
 };
 

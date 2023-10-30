@@ -14,7 +14,6 @@ const FlyContainer: React.FC<interfaceProp> = () => {
     }
     
     useEffect(() => {
-        console.log("fly 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1920,
@@ -27,10 +26,10 @@ const FlyContainer: React.FC<interfaceProp> = () => {
             }
         }
 
-        // if (refFirstRef.current) {
-        //     refFirstRef.current = false
-        //     return
-        // }
+        if (refFirstRef.current) {
+            refFirstRef.current = false
+            return
+        }
 
         game = new Phaser.Game(gameConfig)
 
@@ -41,7 +40,6 @@ const FlyContainer: React.FC<interfaceProp> = () => {
 
     return (
         <>
-            <button onClick={reloadHandler}>Reload</button>
             <div id="test"></div>
         </>
     )

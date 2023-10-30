@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import HomeScene from "../scene/HomeScene"
-import { IonContent } from "@ionic/react"
+import './HomeContainer.css'
 
 let game: Phaser.Game
 
@@ -10,22 +10,22 @@ const HomeContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
 
     function reloadHandler() {
-        // window.location.reload()
         window.location.href = '/'
     }
 
     useEffect(() => {
-        console.log("page 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,
             height: 1920,
-            backgroundColor: '#FFFFFF',
-            scene: [HomeScene],
+            backgroundColor: '#77B97A',
             scale: {
                 mode: Phaser.Scale.ScaleModes.FIT,
-                parent: 'test',
-            }
+                parent: 'home',
+            },
+            callbacks: {
+            },
+            scene: [HomeScene]
         }
 
         // if (refFirstRef.current) {
@@ -42,8 +42,7 @@ const HomeContainer: React.FC<interfaceProp> = () => {
 
     return (
         <>
-            <button onClick={reloadHandler}>Reload</button>
-            <div id="test"></div>
+            <div id="home"></div>
         </>
     )
 }

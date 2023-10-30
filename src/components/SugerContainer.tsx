@@ -9,12 +9,10 @@ const SugerContainer: React.FC<interfaceProp> = () => {
     const refFirstRef = useRef(true)
 
     function reloadHandler() {
-        // window.location.reload()
         window.location.href = '/arcade/'
     }
 
     useEffect(() => {
-        console.log("suger 실행!!!")
         const gameConfig = {
             type: Phaser.AUTO,
             width: 1080,
@@ -41,7 +39,6 @@ const SugerContainer: React.FC<interfaceProp> = () => {
 
     return (
         <>
-            <button onClick={reloadHandler}>Reload</button>
             <div id="test"></div>
         </>
     )

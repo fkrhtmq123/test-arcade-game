@@ -5,6 +5,7 @@ let score: number = 0
 let scoreText: Phaser.GameObjects.Text
 let gameoverText: Phaser.GameObjects.Text
 let gameStatus: boolean = false
+let background: Phaser.GameObjects.TileSprite
 
 export default class FlyScene extends Phaser.Scene {
     constructor() {
@@ -27,10 +28,12 @@ export default class FlyScene extends Phaser.Scene {
         this.load.image('bird', '/img/bird.png')
         this.load.image('cloud', '/img/cloud.png')
         this.load.image('back', '/img/back.png')
+        this.load.image('big', 'dist/img/big_item.png')
+        this.load.image('small', 'dist/img/small_item.png')
     }
 
     create = () => {
-        this.add.tileSprite(0, 0, 1920, 1080, 'back').setOrigin(0, 0)
+        background = this.add.tileSprite(0, 0, 1920, 1080, 'back').setOrigin(0, 0)
 
         const camaraX = this.game.config.width / 2
         const camaraY = this.game.config.height / 2
@@ -83,6 +86,10 @@ export default class FlyScene extends Phaser.Scene {
                         if(!isOverlapping) {
                             console.log(isOverlapping);
                             score -= 50
+                            const text = this.add.text(fly.x, fly.y, '악!!!!!', { fontSize: 50, color: 'black' })
+                            setTimeout(() => {
+                                text.destroy()
+                            }, 250)
     
                             if(score < 0) {
                                 gameStatus = false
@@ -173,7 +180,10 @@ export default class FlyScene extends Phaser.Scene {
 
     update = () => {
         // console.log(fly.x)
-    }
+        if(gameStatus) {
+            background.tilePositionX += 1
+        }
+    }   
 
     addFly = () => {
         fly = this.physics.add.image(300, 500, 'bird')
@@ -194,6 +204,8 @@ export default class FlyScene extends Phaser.Scene {
             item.body.allowGravity = false
             item.setName(itemName[randomItemName])
             item.displayWidth
+
+            item.setScale(0.2)
     
             this.tweens.add({
                 targets: item,
@@ -209,7 +221,7 @@ export default class FlyScene extends Phaser.Scene {
             let isOverlapping: boolean = false
 
             if (!isOverlapping) {
-                this.physics.add.overlap(fly, item, (fly: any,item: any) => {
+                this.physics.add.overlap(fly, item, (fly: any, item: any) => {
                     if(!isOverlapping) {
                         if(item.name === 'small') {
                             score += 50
@@ -222,6 +234,8 @@ export default class FlyScene extends Phaser.Scene {
                             fly.setDisplaySize(fly.displayWidth + 30, fly.displayHeight + 30)
                             scoreText.setText(`Score : ${score}`)
                         }
+
+                        item.destroy()
                     }
                     isOverlapping = true;
                 });
